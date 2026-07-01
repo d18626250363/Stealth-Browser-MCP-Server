@@ -1,0 +1,67 @@
+{
+  "name": "electron-stealth",
+  "version": "1.0.0",
+  "description": "Standalone Electron stealth browser with MCP server — real Chrome fingerprint, 32 CDP automation tools, no Playwright dependency",
+  "author": "electron-stealth",
+  "license": "MIT",
+  "keywords": [
+    "electron",
+    "stealth",
+    "browser",
+    "automation",
+    "mcp",
+    "cdp",
+    "chrome",
+    "fingerprint",
+    "antidetect",
+    "scraping",
+    "claude-code",
+    "mcp-server"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/electron-stealth/electron-stealth"
+  },
+  "homepage": "https://github.com/electron-stealth/electron-stealth#readme",
+  "bugs": {
+    "url": "https://github.com/electron-stealth/electron-stealth/issues"
+  },
+  "type": "module",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:portable": "electron-builder --win portable",
+    "bridge": "node src/bridge.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.9.0"
+  },
+  "devDependencies": {
+    "electron": "^34.0.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.electron-stealth.app",
+    "productName": "Electron Stealth",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**",
+      "assets/**",
+      "node_modules/@modelcontextprotocol/**"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ]
+    },
+    "portable": {
+      "artifactName": "ElectronStealth-${version}.exe"
+    }
+  }
+}
